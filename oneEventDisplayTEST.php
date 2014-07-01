@@ -1,0 +1,301 @@
+<?php session_start(); 
+//konekcija sa bazom
+require_once("database_connect.php");
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+//izbor baze
+mysql_select_db("dksg_3120", $con);
+$id = $_GET['id'];
+$query = ("SELECT * FROM event WHERE (id = $id);");
+				 //echo "$query<br />";
+$result = mysql_query($query);
+if(mysql_num_rows($result)==0){
+	die ("Došlo do greške pokušajte kasnije");
+	}
+$row = mysql_fetch_array($result);	
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml"  xmlns:fb="http://ogp.me/ns/fb#">
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title><?php echo $row['imePrograma']?></title>
+<meta http-equiv="keywords" content=" <?php echo $row['imePrograma'].", ".$row['imePrograma']?>, dom ,kulture, studentski, grad, velika, sala, mala, studio, radionica, skola, ">
+<meta http-equiv="description" content="Dom kulture Studentski grad (DKSG) svojim sadržajem pokriva sve oblasti umetnosti, a većina programa je besplatna.">
+<link rel="shortcut icon" href="http://dksg.rs/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="http://dksg.rs/favicon.ico" type="image/ico" />
+<META name="abstract" content="dom kulture u studentskom gradu u beogradu">
+<LINK href="http://dksg.rs/reset.css" rel="stylesheet" type="text/css">
+<LINK href="http://dksg.rs/main.css" rel="stylesheet" type="text/css">
+<SCRIPT src="http://dksg.rs/jquery-1.2.6.min.js" type="text/javascript" charset="utf-8"></SCRIPT>
+<SCRIPT src="http://dksg.rs/ui_nav.js" type="text/javascript" charset="utf-8"></SCRIPT>
+<STYLE id="tmpStyle" type="text/css" disabled="">
+#pic {
+	-moz-opacity: 0.00;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	-khtml-opacity: 0;
+}
+</STYLE>
+<SCRIPT type="text/javascript" src="../script.js"></SCRIPT>
+<script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16499062-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</HEAD>
+<SCRIPT src="http://dksg.rs/ga.js" type="text/javascript"></SCRIPT>
+
+<BODY>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<DIV id="content">
+  <DIV id="header">
+    <?php include_once("heder.php") ?>
+  </DIV>
+  <div id="menu">
+    <?php include_once("menu.php"); ?>
+  </div>
+  <DIV id="mainBig">
+    <?php
+
+//**************************************************************************blok koji prikazuje sliku i sliku uz tekst
+     $program = $row['program'];
+			  switch($program)
+			  {
+				  case 'likovni':
+				  $program2 = 'Likovni program';
+				  break;
+				  case 'filmski':
+				  $program2 = 'Filmski program';
+				  break;
+				  case 'pozorisni':
+				  $program2 = 'Pozorišni program';
+				  break;
+				  case 'muzicki':
+				  $program2 = 'Muzički program';
+				  break;
+				  case 'biblioteka':
+				  $program2 = 'Program biblioteke';
+				  break;
+				  case 'afc':
+				  $program2 = 'Program Akademskog filmskog centra';
+				  break;
+				  case 'forum':
+				  $program2 = 'Program forum';
+				  break;
+				  case 'ostali':
+				  $program2 = 'Ostali programi';
+				  break;
+				  case 'radionica':
+				  $program2 = 'Radionica';
+				  break;
+				  case 'obavestenje':
+				  $program2 = 'Obaveštenje';
+				  break;
+				  case 'knjizevni':
+				  $program2 = 'Književni program';
+				  break;
+				  default:
+				   echo' ';
+				  
+				   
+				 
+			  }
+			  echo $row['dan'].". ".$row['mesec'].". ".$row['godina'].".| <strong>$program2</strong> ";
+			  echo"<hr>";?>
+    <div class="content-item-640">
+      <div class='content-item-photo-right'> 
+      	<a href='<?php if($row['slika']!= '0'){ echo $row['slika'];} else echo "#"?>'> 
+        	<img  src='<?php if($row['slika']!= '0'){
+		                       echo $row['slika'];
+		   					 } 
+		                     else 
+		                       echo "images/osnovne/belo.png"?>'> </a> 
+      </div>
+      <div class="content-item-content-430-left"> <?php echo ($row['tekst']);?> </div>
+      <div class="clear"></div>
+    </div>
+    <?PHP 
+/*****************************Prikaz  vrsta materijala***********************/				 
+				  $query400 = "SELECT id FROM mat_fotografija WHERE id = $id";
+				  $result400 = mysql_query($query400);
+				  if (mysql_num_rows($result400) > 0)
+				  $temp = "Fotografija";
+				  else $temp = '';
+				  $query400 = "SELECT id FROM mat_katalog WHERE id = $id";
+				  $result400 = mysql_query($query400);
+				  if (mysql_num_rows($result400) > 0)
+				  $temp = $temp.", Katalog";
+				  else $temp = $temp.'';
+				  $query400 = "SELECT id FROM mat_plakat WHERE id = $id";
+				  $result400 = mysql_query($query400);
+				  if (mysql_num_rows($result400) > 0)
+				  $temp = $temp.", Plakat";
+				  else $temp = $temp.'';
+				  $query400 = "SELECT id FROM mat_pozivnica WHERE id = $id";
+				  $result400 = mysql_query($query400);
+				  if (mysql_num_rows($result400) > 0)
+				  $temp = $temp.", Pozivnica";
+				  else $temp = $temp.'';
+				  $query400 = "SELECT id FROM mat_program WHERE id = $id";
+				  $result400 = mysql_query($query400);
+				  if (mysql_num_rows($result400) > 0)
+				  $temp = $temp.", Program";
+				  else $temp = $temp.'';
+				  $query400 = "SELECT id FROM mat_publikacija WHERE id = $id";
+				  $result400 = mysql_query($query400);
+				  if (mysql_num_rows($result400) > 0)
+				  $temp = $temp.", Publikacija";
+				  else $temp = $temp.'';
+				  $query400 = "SELECT id FROM mat_video WHERE id = $id";
+				  $result400 = mysql_query($query400);
+				  if (mysql_num_rows($result400) > 0)
+				  $temp = $temp.", Video";
+				  else $temp = $temp.'';
+				  $query400 = "SELECT id FROM mat_zvuk WHERE id = $id";
+				  $result400 = mysql_query($query400);
+				  if (mysql_num_rows($result400) > 0)
+				  $temp = $temp.", Audio snimak";
+				  else $temp = $temp.'';
+				  
+				  if ($temp !='') echo "Vrste materijala u arhivi:".$temp; 
+				  
+				  if ($temp !='') echo "<br/>Signature:".$row['signature'].
+			  "</td>
+			</tr>
+		</table>";
+?>
+    <div style="vertical-align:baseline; padding-top:5px">
+      <div style="display:table">
+        <div style="display:table-row">
+          <div style=" display:table-cell; vertical-align:top; width:150px;">
+            <div style="vertical-align:top; width:150px">
+              <fb:like send="true" layout="button_count" width="150" show_faces="true" font="arial"></fb:like>
+            </div>
+          </div>
+          <div style="display:table-cell; vertical-align:top; width:84px;">
+            <div style="vertical-align:top"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Dom kulture Studentski grad">Tweet</a> 
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> 
+            </div>
+          </div>
+          <div style="display:table-cell; vertical-align:top; width:200px;">
+            <div class="g-plusone"></div>
+            <script type="text/javascript">
+  					(function() {
+    					var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    					po.src = 'https://apis.google.com/js/plusone.js';
+					    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  						})();
+				</script> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <?php
+//kraj bloka za tekst
+//*****************************************************************blok koji prikazuje sve fajlove vezane za dogadjaj
+$query = ("SELECT * FROM fajlovi WHERE (id = $id);");
+$result = mysql_query($query);
+while($row = mysql_fetch_array($result)){
+    echo "
+     	<table width='425px'>
+        	<tr>
+			  <td>";
+			  if($row['id']!= '0'){//ako ima fajlova
+				  /*ako je fajl slika*/
+				  switch($row['klasaFajla']){
+					  case('slika'):echo"<a href='".$row['path']."'>
+					                     <img style='float:right; padding:5px;' src='".$row['path']."' width='150px'/><br />
+                                         ".$row['komentar']."</a><br/>";
+					  break;
+			  //ako nije slika prikazi link na fajl, ako nije unet komentar ispisi "link na + 'tip fajla' + fajl" 
+					  case('ostali'):
+					  if(empty($row['komentar'])){
+						  echo"<a href='".$row['path']."'>Link na dument tipa:".$row['tipFajla']."</a><br/>";
+						  }
+					  else{
+					  echo"<a href='".$row['path']."'>".$row['komentar']."</a><br/>";
+					  }
+					  
+					  break;
+					  case('zvuk'):echo'<embed type="application/x-shockwave-flash" flashvars="audioUrl='.$row['path'].'" src="http://www.google.com/reader/ui/3523697345-audio-player.swf" width="400" height="27" quality="best"></embed>'.$row['komentar'];
+					  break;
+					  case('video'):echo'
+					  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="390" >
+  <param name="movie" value="FLVPlayer_Progressive.swf" />
+  <param name="quality" value="high" />
+  <param name="wmode" value="opaque" />
+  <param name="scale" value="noscale" />
+  <param name="salign" value="lt" />
+  <param name="FlashVars" value="&amp;MM_ComponentVersion=1&amp;skinName=Halo_Skin_3&amp;streamName='.$row['path'].';autoPlay=false&amp;autoRewind=false" />
+  <param name="swfversion" value="8,0,0,0" />
+  <!-- This param tag prompts users with Flash Player 6.0 r65 and higher to download the latest version of Flash Player. Delete it if you dont want users to see the prompt. -->
+  <param name="expressinstall" value="Scripts/expressInstall.swf" />
+  <!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+  <!--[if !IE]>-->
+  <object type="application/x-shockwave-flash" data="FLVPlayer_Progressive.swf" width="390" height="259">
+    <!--<![endif]-->
+    <param name="quality" value="high" />
+    <param name="wmode" value="opaque" />
+    <param name="scale" value="noscale" />
+    <param name="salign" value="lt" />
+    <param name="FlashVars" value="&amp;MM_ComponentVersion=1&amp;skinName=Halo_Skin_3&amp;streamName=video/OtkucajiTempiranogVremena&amp;autoPlay=false&amp;autoRewind=false" />
+    <param name="swfversion" value="8,0,0,0" />
+    <param name="expressinstall" value="Scripts/expressInstall.swf" />
+    <!-- The browser displays the following alternative content for users with Flash Player 6.0 and older. -->
+    <div>
+      <h4>Content on this page requires a newer version of Adobe Flash Player.</h4>
+      <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+    </div>
+    <!--[if !IE]>-->
+  </object>
+  <!--<![endif]-->
+</object>
+<br />
+'.$row['komentar'].'
+<br />
+
+
+					  ';
+					  default:              
+					  }
+				 }
+				  echo"
+			  
+			  </td>
+			</tr>
+			<tr><td><hr/></td></tr>
+		</table>";
+    }
+
+?>
+  </DIV>
+  <!--main-->
+  
+  <div id="footer"> 
+    <!--footer--> 
+    
+  </div>
+  <!--footer--> 
+</DIV>
+<!--container-->
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+[18-Mar-2014 16:06:50 Europe/Berlin] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: Access denied for user 'dksg'@'localhost' (using password: NO) in /home/dksg/public_html/dksg.rs/slider2/index.php on line 8
+[18-Mar-2014 16:06:50 Europe/Berlin] PHP Warning:  mysql_query() [<a href='function.mysql-query'>function.mysql-query</a>]: A link to the server could not be established in /home/dksg/public_html/dksg.rs/slider2/index.php on line 8

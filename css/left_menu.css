@@ -1,0 +1,158 @@
+.arrowlistmenu {
+	width: 180px; /*width of accordion menu*/
+	background-color: #fff;
+}
+.arrowlistmenu .menuheader { /*CSS class for menu headers in general (expanding or not!)*/
+	font: bold 14px arial;
+	color: black;
+	/*background: black url('http://www.dksg.rs/images/osnovne/titlebar.png') repeat-x center left;*/
+	margin-bottom: 5px; /*bottom spacing between header and rest of content*/
+	padding: 0px; /*header text is indented 10px*/
+	cursor: hand;
+	cursor: pointer;
+	text-decoration: none;
+	background-color: #fff;
+	border-bottom: 1px solid #999;/*crta ispod stavki glavnog menija*/
+}
+.arrowlistmenu .menuheader expandable h3 {
+	font: bold 13px verdana;
+	color: #black;
+}
+.arrowlistmenu .menuheader a {
+	text-decoration: none;
+	color: #666;
+}
+.arrowlistmenu .openheader { /*CSS class to apply to expandable header when it's expanded*/
+	background-image: url('http://www.dksg.rs/images/osnovne/titlebar-active.png');
+}
+.arrowlistmenu ul { /*CSS for UL of each sub menu*/
+	list-style-type: none;
+	font-size: 13px;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 8px; /*bottom spacing between each UL and rest of content*/
+}
+.arrowlistmenu ul li {
+	padding-bottom: 2px; /*bottom spacing between menu items*/
+}
+.arrowlistmenu ul li .opensubheader { /*Open state CSS for sub menu header*/
+	background: #fff !important;
+}
+.arrowlistmenu ul li .closedsubheader { /*Closed state CSS for sub menu header*/
+	background: #fff !important;
+}
+.arrowlistmenu ul li a {
+	color: #666;
+	/*background: url('http://www.dksg.rs/images/osnovne/arrowbullet.png') no-repeat center left; /*custom bullet list image*/
+	display: block;
+	padding: 2px 0;
+	padding-left: 19px; /*link text is indented 19px*/
+	text-decoration: none;
+	font-weight: bold;
+	border-bottom: 1px solid #999;
+	font-size: 90%;
+}
+.arrowlistmenu ul li a:visited {
+	color: #666;
+}
+.arrowlistmenu ul li a:hover { /*hover state CSS*/
+	background-color: #ccc;
+}
+.arrowlistmenu ul li a.subexpandable:hover { /*hover state CSS for sub menu header*/
+	background: #CCC;
+}
+.kalendarImeMeseca {
+	width: 180px;
+	margin-top: 22px;
+	margin-bottom: 6px;
+	vertical-align: central;
+	border-top: solid #999 1px;
+	border-bottom-width: 1px;
+	border-top-width: 1px;
+	height: 20px;
+	border-bottom: solid #999 1px;
+}
+.kalendar {
+	font-size: 12px;
+	text-align: center;
+	margin: 0 auto 0 auto;
+	color: #666;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+	width:25px;
+	height:20px;
+	cursor:pointer;
+}
+.kalendar a:hover {
+	color: #F00;
+	text-align: center;
+}
+.kalendar2 {
+	cursor:pointer;
+	font-size: 12px;
+	text-align: center;
+	margin: 0 auto 0 auto;
+	background-color: #999;
+        color: #000;
+        font-family:Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+.kalendar2 a:hover {
+	color: #F00;
+	text-align: center;
+	cursor:pointer;
+}
+a:link {
+	text-decoration: none;
+	color: #666;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a:visited {
+	text-decoration: none;
+	color: #666;
+	font-family: Arial, Helvetica, sans-serif;
+}
+a:hover {
+	text-decoration: underline;
+	color: #F00;
+}
+a:active {
+	text-decoration: underline;
+}
+/* Za input za pretragu*/
+.nav:hover {
+	background: url('http://www.dksg.rs/images/osnovne/magnifying-glass-icons-2.gif') no-repeat top 0 right 0;
+	cursor: pointer;
+}
+.nav {
+	background: url('http://www.dksg.rs/images/osnovne/magnifying-glass-icons-2.gif') no-repeat top 0 right 0;
+}
+input.search {
+	background-color:transparent;
+border: 0px solid;
+height:18px;
+width:160px;
+color:#666;
+}
+input.search:focus {
+	background-color:yellow;
+	color:#000
+}
+
+/*Kalendar 2013*/
+div.inline { float:left; }
+.clearBoth { clear:both; }
+.calendar_link{
+		display: inline-block;
+		width: 20px;
+		cursor: pointer;
+		color: #666;
+    }
+.calendar_name{
+		width: 140px;
+		display: inline-block;
+		text-align:center;
+		color: #666;
+	}
+.calendarEmpty{
+    }

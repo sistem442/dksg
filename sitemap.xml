@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+			    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+	
+<url>
+  <loc>http://www.dksg.rs/afcArhiv.php</loc>
+  <lastmod>2010-08-23</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <image:image>
+    <image:loc>http://www.dksg.rs/images/osnovne/alternativefilmarhiv.jpg</image:loc>
+  </image:image>
+  <image:image> http://www.dksg.rs/images/osnovne/alternativefilmarhiv2.jpg </image:image>
+  <video:video>
+    <video:content_loc>http://www.dksg.rs/video/prilog1982_1.flv</video:content_loc>
+    <video:player_loc allow_embed="yes" autoplay="ap=1">http://www.dksg.rs/FLVPlayer_Progressive.swf?</video:player_loc>
+    <video:thumbnail_loc>http://www.dksg.rs/video/afcArhivThumb.jpg</video:thumbnail_loc>
+    <video:title>Alternative Film Arhiv 1982</video:title>
+    <video:description>Prilog o Arhivu alternativnog filma iz 1982. godine</video:description>
+  </video:video>
+</url>
+</urlset>

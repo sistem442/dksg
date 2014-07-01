@@ -1,0 +1,81 @@
+AddType application/x-httpd-php .xml
+RewriteEngine on
+
+RewriteRule ^ponedeljak/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=1 [NC,L]
+RewriteRule ^utorak/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=2 [NC,L]
+RewriteRule ^sreda/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=3 [NC,L]
+RewriteRule ^cetvrtak/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=4 [NC,L]
+RewriteRule ^petak/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=5 [NC,L]
+RewriteRule ^subota/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=6 [NC,L]
+RewriteRule ^nedelja/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=7 [NC,L]
+
+RewriteRule ^1/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=1 [NC,L]
+RewriteRule ^2/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=2 [NC,L]
+RewriteRule ^3/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=3 [NC,L]
+RewriteRule ^4/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=4 [NC,L]
+RewriteRule ^5/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=5 [NC,L]
+RewriteRule ^6/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=6 [NC,L]
+RewriteRule ^7/([0-9]+)/([0-9]+)/([0-9]+)/?$ index.php?dan=$1&mesec=$2&godina=$3&danNedelje=7 [NC,L]
+
+RewriteRule ^bibliotekaUrednik.php?$ tekstDisplay.php?id=100016 [NC,L]
+RewriteRule ^biblioteka/info?$ tekstDisplay.php?id=100016 [NC,L]
+RewriteRule ^biblioteka/uputstvo-za-pretragu-kataloga?$ biblioteka.php?url=izgled.html [NC,L]
+RewriteRule ^biblioteka/program?$ Dom_kulture_program.php?program=biblioteka [NC,L]
+RewriteRule ^biblioteka/prozor-sangaja?$ tekstDisplay.php?id=100017 [NC,L]
+RewriteRule ^biblioteka/prozor-sangaja-program?$ tekstDisplay.php?id=100019 [NC,L]
+RewriteRule ^biblioteka/window-of-shanghai?$ tekstDisplay.php?id=100020 [NC,L]
+RewriteRule ^biblioteka/bookcrossing?$ tekstDisplay.php?id=100018 [NC,L]
+RewriteRule ^biblioteka/zaposleni?$ tekstDisplay.php?id=100021 [NC,L]
+RewriteRule ^biblioteka/nabavka-knjiga?$ tekstDisplay.php?id=100007 [NC,L]
+RewriteRule ^biblioteka/mailing-lista?$ prijavaMailingLista.php [NC,L] 
+RewriteRule ^biblioteka/linkovi?$ tekstDisplay.php?id=100004 [NC,L] 
+RewriteRule ^biblioteka/preporuka-za-citanje?$ tekstCategoryDisplay.php?category=biblioteka_preporuka [NC,L]
+RewriteRule ^biblioteka/sajam_2013?$ tekstDisplay.php?id=100044 [NC,L] 
+
+#levi Meni
+RewriteRule ^program/forum?$ Dom_kulture_program.php?program=forum [NC,L]
+RewriteRule ^program/pozoriste?$ Dom_kulture_program.php?program=pozorisni [NC,L]
+RewriteRule ^program/likovni?$ Dom_kulture_program.php?program=likovni [NC,L]
+RewriteRule ^program/knjizevni?$ Dom_kulture_program.php?program=knjizevni [NC,L]
+RewriteRule ^program/afc?$ Dom_kulture_program.php?program=afc [NC,L]
+RewriteRule ^program/muzicki?$ Dom_kulture_program.php?program=muzicki [NC,L]
+RewriteRule ^program/filmski?$ Dom_kulture_program.php?program=filmski [NC,L]
+RewriteRule ^foto/([A-Za-z0-9-]+)/?$ galerija_redakcija.php?redakcija=$1 [NC,L]
+RewriteRule ^afc/produkcija?$ tekstDisplay.php?id=100022 [NC,L]
+RewriteRule ^afc/radionica?$ oneEventDisplay.php?id=2715 [NC,L]
+RewriteRule ^afc/arhiv?$ afc_arhivAlternativnogFilmaIVidea.php [NC,L]
+RewriteRule ^afc/arhiv/vesti?$ afc_ArhivaVesti.php [NC,L]
+
+#heder
+RewriteRule ^foto/?$ galerija_opsta.php [NC,L]
+RewriteRule ^foto/arhiva?$ galerija_arhiva.php [NC,L]
+RewriteRule ^vesti?$ arhiva_vesti.php [NC,L]
+RewriteRule ^press-cliping?$ pressCliping.php [NC,L]
+RewriteRule ^pretraga?$ advancedSearch.php [NC,L]
+RewriteRule ^publikacije?$ izdanja_Doma_kulture.php [NC,L]
+RewriteRule ^o-nama?$ tekstDisplay.php?id=100029 [NC,L]
+RewriteRule ^onama.php?$ tekstDisplay.php?id=100029 [NC,L]
+RewriteRule ^istorijat?$ tekstDisplay.php?id=100037 [NC,L]
+RewriteRule ^prostori?$ tekstDisplay.php?id=100038 [NC,L]
+RewriteRule ^kontakt?$ tekstDisplay.php?id=100039 [NC,L]
+RewriteRule ^prijatelji?$ prijatelji_dksg.php [NC,L]
+
+#redakcije.php
+RewriteRule ^forum-redakcija?$ tekstDisplay.php?id=100030 [NC,L]
+RewriteRule ^pozorisna-redakcija?$ tekstDisplay.php?id=100031 [NC,L]
+RewriteRule ^knjizevna-redakcija?$ tekstDisplay.php?id=100032 [NC,L]
+RewriteRule ^likovna-redakcija?$ tekstDisplay.php?id=100033 [NC,L]
+RewriteRule ^muzicka-redakcija?$ tekstDisplay.php?id=100034 [NC,L]
+RewriteRule ^filmska-redakcija?$ tekstDisplay.php?id=100005 [NC,L]
+RewriteRule ^afc-redakcija?$ tekstDisplay.php?id=100036 [NC,L]
+
+#za letnji odmor
+RewriteRule ^letnja-pauza?$ letnja_pauza.php [NC,L]
+
+#ostalo
+RewriteRule ^event/([A-Za-z0-9-]+)/?$ oneEventDisplay.php?id=$1 [NC,L]
+
+#za uklanjanje .php
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php

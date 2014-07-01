@@ -1,0 +1,42 @@
+/* CSS Document */
+
+
+body {
+	background:white;
+	color:black;
+	font: 13pt bold Arial, Helvetica, sans-serif;
+	}
+.container{
+	padding-top:100px
+	width: 900px;
+	text-align: left;
+	margin: 0 auto;
+}
+.container2{
+	width: 1094px;
+	text-align: left;
+	margin: 0 auto;
+}
+.result{
+	padding: 5px;
+	width:200px;
+	margin:12px;
+	}
+a.result2:link {
+	color: #009;
+	text-decoration:none;
+}
+a.result2:visited {
+	color: #009;
+}
+a.result2:hover {
+	color: red;
+}
+a.result2:active {
+	color: red;
+}
+.blueBold{
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	color:#009;	
+	}
