@@ -3,7 +3,7 @@ require_once("database_connect.php");
 $day = date('j');
 $month = date('n');
 $year = date('Y'); 
-$query = "SELECT * FROM slajd WHERE (dan >= $day AND mesec = $month AND godina = $year) || ( mesec > $month AND godina = $year) || (mesec=1 AND godina = ($year+1) )  ORDER BY   `slajd`.`godina` ASC,`slajd`.`mesec` ASC, `slajd`.`dan` ASC LIMIT 0,50;";
+$query = "SELECT * FROM slajd WHERE (dan >= $day AND mesec = $month AND godina = $year) || ( mesec > $month AND godina = $year) || (mesec=1 AND godina = ($year+1) )  ORDER BY   `slajd`.`godina` ASC,`slajd`.`mesec` ASC, `slajd`.`dan` ASC LIMIT 0,10;";
 //echo $query;
 $result = mysql_query($query);
 if($result === FALSE) {
